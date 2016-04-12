@@ -1,0 +1,17 @@
+footer {
+  color: white;
+  right: 0.2px;
+  padding: 2%;
+  width: 100%;
+  background-color: grey;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-info {
+  padding-left: 3%;
+}
+
+#add-names:hover {
+  cursor: pointer;
+}
