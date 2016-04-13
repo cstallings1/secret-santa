@@ -2,20 +2,20 @@ $(function() {
   $("#add-names").on("click", function(){
     $(".drawing-form").append(
       "<div> \
-        <input placeholder='your name' type='text' name='drawing[user_name]' id='drawing_name'> \
-        <input placeholder='your spouse' type='text' name='drawing[user_spouse]' id='drawing_spouse'> \
+        <input placeholder='your name' type='text' name='participant[name]' id='participant_name'> \
+        <input placeholder='your spouse' type='text' name='participant[spouse]' id='participant_spouse'> \
       </div>"
       );
   });
 
-  $("#generate-list-button").on("click", function(e) {
+  $("#create-list-button").on("click", function(e) {
     e.preventDefault();
-    var drawingId;
+    var drawingId = $("input[name='participant[drawing_id]']").val();
     var formData = $(".drawing-form").serialize();
 
     $.ajax({
       method: "POST",
-      url: "/drawings",
+      url: "/drawings/" + drawingId + "/participants",
       data: formData
     })
     .done(function(response) {

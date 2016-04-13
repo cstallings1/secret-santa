@@ -5,13 +5,18 @@ class DrawingsController < ApplicationController
   end
 
   def create
-    drawing = Drawing.new(drawing_params)
-  puts "******"
-  puts drawing
-    if drawing.save
-      drawing.users.build()
-      render json: drawing
+    @drawing = Drawing.new(drawing_params)
+    if @drawing.save
+      redirect_to drawing_path(@drawing)
+    else
+      flash.now[:errors] = @drawing.errors.full_messages.to_sentence
+      render "welcome/homepage"
     end
+  end
+
+  def show
+    @drawing = Drawing.find(params[:id])
+    puts @drawing
   end
 
   private

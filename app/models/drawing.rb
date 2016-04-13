@@ -1,4 +1,6 @@
 class Drawing < ActiveRecord::Base
-  has_many :users
+  has_many :participants
+
+  validates :name, presence: true, uniqueness: true
 
 end

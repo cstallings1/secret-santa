@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160411233443) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "spouse"
     t.integer  "drawing_id"

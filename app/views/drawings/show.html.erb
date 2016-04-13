@@ -1,0 +1,11 @@
+<h1><%= @drawing.name %> Drawing</h1>
+
+<%= form_for([@drawing, @participant, @drawing.participants.build], :html => { :class => "drawing-form" }) do |f| %>
+  <%= f.text_field :name, :placeholder => "your name"%>
+  <%= f.text_field :spouse, :placeholder => "your spouse" %>
+  <%= f.hidden_field :drawing_id, value: @drawing.id  %>
+<% end %>
+
+<p id="add-names">Add More Names</p>
+
+<button id="create-list-button">Generate List!</button>

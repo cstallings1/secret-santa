@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateParticipants < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :participants do |t|
       t.string :name
       t.string :spouse
       t.integer :drawing_id

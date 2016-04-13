@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :drawings, only: [:new, :create, :destroy] do
-    resources :users, only: [:new, :create, :destroy]
+  resources :drawings, only: [:new, :create, :destroy, :show] do
+    resources :participants, only: [:new, :create, :destroy]
   end
 
 

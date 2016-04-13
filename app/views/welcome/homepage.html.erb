@@ -1,10 +1,13 @@
-<h1>Secret Santa Generator</h1>
+<% flash.each do |key, value| %>
+  <%= value %>
+<% end %>
 
-<section class="name-list">
-  <%= render "form" %>
-</section>
+<%= form_for :drawing, :url => { :controller => "drawings", :action => "create"}, :html => {:class => 'drawing-form'} do |f| %>
+  <%= f.text_field :name, :placeholder => "drawing name", class: 'drawing-name' %></br>
+  <%= f.submit "Create Drawing" %>
+<% end %>
 
-<p id="add-names">add more names</p>
 
-<button id="generate-list-button">Generate List</button>
+
+
 
