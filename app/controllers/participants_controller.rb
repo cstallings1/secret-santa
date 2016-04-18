@@ -5,8 +5,9 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @drawing = Drawing.find_by(id: params[:id])
-    @drawing.participants.new(participant_params)
+    @drawing = Drawing.find_by(id: params[:drawing_id])
+    @drawing.participants.create(participant_params)
+
   end
 
   def destroy
@@ -18,3 +19,4 @@ class ParticipantsController < ApplicationController
       params.require(:participant).permit(:name, :spouse)
     end
 end
+
