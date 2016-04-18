@@ -7,24 +7,6 @@ $(function() {
       </div>"
       );
   });
-
-  $("#create-list-button").on("click", function(e) {
-    e.preventDefault();
-    var drawingId = $("input[name='participant[drawing_id]']").val();
-    var formData = $(".drawing-form").serialize();
-
-    $.ajax({
-      method: "POST",
-      url: "/drawings/" + drawingId + "/participants",
-      data: formData
-    })
-    .done(function(response) {
-
-    })
-    .error(function(response) {
-
-    });
-  })
 });
 
 

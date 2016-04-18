@@ -16,6 +16,10 @@ class DrawingsController < ApplicationController
 
   def show
     @drawing = Drawing.find(params[:id])
+    @pool = []
+    10.times do
+      @pool << Participant.new
+    end
   end
 
   private

@@ -1,11 +1,22 @@
 <h1><%= @drawing.name %> Drawing</h1>
 
-<%= form_for([@drawing, @participant, @drawing.participants.build], :html => { :class => "drawing-form" }) do |f| %>
-  <%= f.text_field :name, :placeholder => "your name"%>
-  <%= f.text_field :spouse, :placeholder => "your spouse" %>
-  <%= f.hidden_field :drawing_id, value: @drawing.id  %>
+<%= form_for([@drawing, @participant, @drawing.participants.build], :html => { :class => "drawing-form" }) do %>
+  <% @pool.each do |person| %>
+    <%= fields_for 'participants[]', person do |f| %>
+      <div class="field">
+        <%= f.text_field :name, :placeholder => "your name"%>
+        <%= f.text_field :spouse, :placeholder => "your spouse" %>
+        <%= f.hidden_field :drawing_id, value: @drawing.id  %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag "Generate List" %>
+  </div>
 <% end %>
 
 <p id="add-names">Add More Names</p>
 
 <button id="create-list-button">Generate List!</button>
+
+
