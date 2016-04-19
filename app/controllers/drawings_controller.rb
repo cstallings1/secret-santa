@@ -1,5 +1,4 @@
 class DrawingsController < ApplicationController
-
   def new
     @drawing = Drawing.new
   end
@@ -26,5 +25,4 @@ class DrawingsController < ApplicationController
     def drawing_params
       params.require(:drawing).permit(:name)
     end
-
 end
