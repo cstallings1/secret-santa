@@ -1,5 +1,4 @@
 class DrawingsController < ApplicationController
-
   def new
     @drawing = Drawing.new
   end
@@ -16,12 +15,14 @@ class DrawingsController < ApplicationController
 
   def show
     @drawing = Drawing.find(params[:id])
-    puts @drawing
+    @pool = []
+    10.times do
+      @pool << Participant.new
+    end
   end
 
   private
     def drawing_params
       params.require(:drawing).permit(:name)
     end
-
 end
